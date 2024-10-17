@@ -1,27 +1,32 @@
-import {useState, useEffect} from "react"
-function App() {
-const [data, setData] = useState([{}])
-useEffect(()=>{
-  fetch("http://localhost:5000/members")
-  .then(res => res.json())
-  .then(data => {
-    setData(data);
-    console.log(data);
-  })
-  .catch(error => console.error('Error:', error));
 
-},[])
+import './App.css'
+import Dashboard from './components/dashboard/Dashboard';
+import Footer from './components/common/footer/Footer';
+import Home from './components/home/Home';
+import Login from './components/login/Login'
+import Nav from './components/common/nav/Nav';
+import Register from './components/register/Register'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Profile from './components/profile/Profile';
+import Test from './components/test';
+
+function App() {
+
   return (
     <>
-      {
-        (typeof data.members === 'undefined')? (
-          <b>Loading...</b>
-        ) : (
-          data.members && data.members.map((member, index) => (
-            <p key={index}>{member}</p>
-          ))
-        )
-      }
+    {/* <Router>
+      <Nav/>
+      <Routes>
+      <Route activeClassName="active_class" exact path="/" element={<Home />}></Route>
+        <Route activeClassName="active_class" exact path="/login" element={<Login />}></Route>
+        <Route activeClassName="active_class" exact path="/register" element={<Register />}></Route>
+        <Route activeClassName="active_class" exact path="/dashboard" element={<Dashboard />}></Route>
+        <Route activeClassName="active_class" exact path="/profile" element={<Profile />}></Route>
+      </Routes>
+        <Footer/>
+    </Router> */}
+
+    <Test/>
     </>
   )
 }

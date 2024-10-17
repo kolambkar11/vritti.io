@@ -1,0 +1,7 @@
+const PreviousOpportunities = () => {
+    return(
+        <>
+            Previous
+        </>
+    )
+}
